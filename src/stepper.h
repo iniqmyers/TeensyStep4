@@ -7,10 +7,11 @@ namespace TS4
     class Stepper : public StepperBase
     {
      public:
-        Stepper(int stepPin, int dirPin)
+	Stepper():StepperBase(){}	
+	Stepper(int stepPin, int dirPin)
+		
             : StepperBase(stepPin, dirPin)
         {}
-
         int32_t getPosition() const { return pos; }
         void setPosition(int32_t p) { pos = p; }
 
@@ -54,4 +55,5 @@ namespace TS4
         //     static bool cmpVmin(const StepperBase* a, const StepperBase* b) { return std::abs(a->vMax) < std::abs(b->vMax); }
         //    static bool cmpVmax(const StepperBase* a, const StepperBase* b) { return std::abs(a->vMax) > std::abs(b->vMax); }
     };
+
 }

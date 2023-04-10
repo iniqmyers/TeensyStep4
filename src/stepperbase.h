@@ -15,15 +15,17 @@ namespace TS4
     class StepperBase
     {
      public:
-        std::string name;
+
+	std::string name;
         bool isMoving = false;
         void emergencyStop();
         void overrideSpeed(float factor);
 
 
      protected:
-        StepperBase(const int stepPin, const int dirPin);
-
+	
+        StepperBase(){}
+	StepperBase(const int stepPin, const int dirPin);
         void startMoveTo(int32_t s_tgt, int32_t v_e, uint32_t v_max, uint32_t a);
         void startRotate(int32_t v_max, uint32_t a);
         void startStopping(int32_t va_end, uint32_t a);
@@ -49,7 +51,7 @@ namespace TS4
 
         inline void doStep();
 
-        const int stepPin, dirPin;
+        int stepPin, dirPin;
 
         ITimer* stpTimer;
         inline void stepISR();
